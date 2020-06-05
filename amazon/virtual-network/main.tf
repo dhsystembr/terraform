@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
     enable_dns_support = "${var.aws_vpc["enable_dns_support"]}"
     enable_dns_hostnames = "${var.aws_vpc["enable_dns_hostnames"]}"
 
-    tags {
+    tags = {
         Name = "${var.aws_vpc["name"]}"
         CreatedBy = "terraform"
     }
@@ -17,7 +17,7 @@ resource "aws_vpc" "vpc" {
 resource "aws_internet_gateway" "default" {
     vpc_id  = "${aws_vpc.vpc.id}"
 
-    tags {
+    tags = {
         Name = "${var.aws_vpc["name"]}_igw"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -47,7 +47,7 @@ resource "aws_route_table" "pub" {
         gateway_id  = "${aws_internet_gateway.default.id}"
     }
 
-    tags {
+    tags = {
         Name = "${var.aws_vpc["name"]}_rt_pub"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -63,7 +63,7 @@ resource "aws_subnet" "pub" {
     availability_zone       = "${element(var.aws_subnet["pub_availability_zones"], count.index)}"
     map_public_ip_on_launch = "true"
 
-    tags {
+    tags = {
         Name = "${element(var.aws_subnet["pub_availability_zones"], count.index)}_pub"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -87,7 +87,7 @@ resource "aws_route_table" "prv" {
         nat_gateway_id  = "${aws_nat_gateway.default.id}"
     }
 
-    tags {
+    tags = {
         Name = "${var.aws_vpc["name"]}_rt_pub"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -102,7 +102,7 @@ resource "aws_subnet" "prv" {
     cidr_block              = "${element(var.aws_subnet["prv_cidr_blocks"], count.index)}"
     availability_zone       = "${element(var.aws_subnet["prv_availability_zones"], count.index)}"
 
-    tags {
+    tags = {
         Name = "${element(var.aws_subnet["prv_availability_zones"], count.index)}_prv"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -137,7 +137,7 @@ resource "aws_security_group" "bastion" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    tags {
+    tags = {
         Name = "Bastion"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -158,7 +158,7 @@ resource "aws_security_group" "internal" {
         cidr_blocks = [ "${aws_instance.bastion.private_ip}/32" ]
     }
 
-    tags {
+    tags = {
         Name = "Internal from bastion"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"
@@ -184,7 +184,7 @@ resource "aws_instance" "bastion" {
     subnet_id              = "${aws_subnet.pub.1.id}"
     vpc_security_group_ids = [ "${aws_security_group.bastion.id}" ]
 
-    tags {
+    tags = {
         Name = "ssh-bastion"
         VirtualNetwork = "${aws_vpc.vpc.tags.Name}"
         CreatedBy = "terraform"

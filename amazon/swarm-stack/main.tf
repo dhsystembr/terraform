@@ -78,7 +78,7 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    tags {
+    tags = {
         Name = "Docker Swarm"
         CreatedBy = "terraform"
     }
@@ -98,7 +98,7 @@ resource "aws_instance" "mgr" {
         "${aws_security_group.swarm.id}"
     ]
 
-    tags {
+    tags = {
         Name = "${var.aws_swarm_mgr_instance["name"]}-${count.index}"
         VirtualNetwork = "${var.aws_vpc["name"]}"
         CreatedBy = "terraform"
@@ -119,7 +119,7 @@ resource "aws_instance" "wkr" {
         "${aws_security_group.swarm.id}"
     ]
 
-    tags {
+    tags = {
         Name = "${var.aws_swarm_wkr_instance["name"]}-${count.index}"
         VirtualNetwork = "${var.aws_vpc["name"]}"
         CreatedBy = "terraform"
