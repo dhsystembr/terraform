@@ -36,7 +36,7 @@ aws_swarm_mgr_instance = {
 }
 
 aws_swarm_wkr_instance = {
-        count = 3
+        count = 2
         instance_type = "t2.small"
         ami = "ami-e13739f6"
         key_name = "terraform"
