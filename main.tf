@@ -44,7 +44,7 @@ module "amazon-swarm" {
 data "template_file" "inventory" {
     template = "${file("templates/inventory.tpl")}"
 
-    vars {
+    vars = {
         aws_swarm_managers  = "${join("\n", formatlist("%15s ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/terraform.pem", module.amazon-swarm.aws_swarm_mgr_public_ips))}"
         aws_swarm_workers   = "${join("\n", formatlist("%15s ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/terraform.pem", module.amazon-swarm.aws_swarm_wkr_public_ips))}"
     }
