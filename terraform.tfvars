@@ -28,7 +28,7 @@ aws_instance = {
 # amazon swarm
 #
 aws_swarm_mgr_instance = {
-        count = 3
+        count = 1
         instance_type = "t2.small"
         ami = "ami-e13739f6"
         key_name = "terraform"
