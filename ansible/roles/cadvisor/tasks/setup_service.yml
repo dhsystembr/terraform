@@ -1,10 +1,15 @@
 ---
 - name: Create CA if not exists
   shell: >
-    docker service create \
-      --mode global \
-      --name cadvisor \
-      --constraint 'node.role==manager' \
-      --publish 8090:8080 \
-      --log-opt max-size={{ ca_log_max_size }} \
+    docker \
+    service create --name cadvisor \
+    --mode global \
+    --network {{ traefik_network_name }} \
+    --label com.docker.stack.namespace=monitoring \
+    --container-label com.docker.stack.namespace=monitoring \
+    --mount type=bind,src=/,dst=/rootfs:ro \
+    --mount type=bind,src=/var/run,dst=/var/run:rw \
+    --mount type=bind,src=/sys,dst=/sys:ro \
+    --mount type=bind,src=/var/lib/docker/,dst=/var/lib/docker:ro \
+    google/cadvisor:v0.24.1
   register: ca_service_create_output
