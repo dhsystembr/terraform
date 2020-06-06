@@ -7,5 +7,4 @@ swarm_iface: eth0
 traefik_network_name: traefik-net
 traefik_access_log: /var/log/traefik.access.log
 
-ca_network_name: ca-net
 
