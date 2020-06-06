@@ -11,6 +11,10 @@
   tags:
     - setup_traefik
 
+- include: setup_cadvisor.yml
+  tags:
+    - setup_cadvisor
+
 - include: deploy_stack.yml
   tags:
     - deploy_stack
