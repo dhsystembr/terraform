@@ -4,7 +4,7 @@
     docker \
     service create --name cadvisor \
     --mode global \
-    --publish 8090:8080 \
+    --publish 9090:8080 \
     --label com.docker.stack.namespace=monitoring \
     --container-label com.docker.stack.namespace=monitoring \
     --mount type=bind,src=/,dst=/rootfs:ro \
