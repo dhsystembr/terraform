@@ -4,7 +4,7 @@
     docker \
     service create --name cadvisor \
     --mode global \
-    --network {{ traefik_network_name }} \
+    --network {{ ca_network_name }} \
     --label com.docker.stack.namespace=monitoring \
     --container-label com.docker.stack.namespace=monitoring \
     --mount type=bind,src=/,dst=/rootfs:ro \

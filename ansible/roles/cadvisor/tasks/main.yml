@@ -1,4 +1,7 @@
 ---
+- include: setup_network.yml
+  tags:
+    - setup_ca_network
 - include: setup_service.yml
   tags:
     - setup_service
