@@ -1,5 +1,5 @@
 ---
-- include: install_docker.yml
+- include: setup_myca.yml
   tags:
-    - install_docker
+    - setup_traefik_network
 

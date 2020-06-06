@@ -42,4 +42,3 @@ services:
         - traefik.frontend.rule=Host:whoami-2.traefik
         - traefik.frontend.passHostHeader=true
         - traefik.port=80
-
