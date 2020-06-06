@@ -2,6 +2,6 @@
 - hosts: all
   become: yes
   roles:
-    - docker
+    - cadvisor
   tags:
     - setup_cadvisor

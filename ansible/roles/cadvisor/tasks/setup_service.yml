@@ -1,11 +1,10 @@
 ---
-- name: Create Traefik if not exists
+- name: Create CA if not exists
   shell: >
     docker service create \
       --mode global \
       --name cadvisor \
       --constraint 'node.role==manager' \
       --publish 8090:8080 \
-      --network {{ traefik_network_name }} \
-      --log-opt max-size={{ traefik_log_max_size }} \
+      --log-opt max-size={{ ca_log_max_size }} \
   register: ca_service_create_output
