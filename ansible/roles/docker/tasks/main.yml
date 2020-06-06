@@ -1,5 +1,5 @@
 ---
-- include: setup_cadvisor.yml
+- include: install_docker.yml
   tags:
-    - setup_traefik_network
+    - install_docker
 
