@@ -12,10 +12,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     deploy:
       mode: global
-    networks:
-      - backend
     ports:
       - 8090:8080
-
-networks:
-  backend:
