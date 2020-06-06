@@ -1,9 +1,9 @@
 ---
-- name: Check if Traefik exists as a service on Swarm
+- name: Check if CA exists as a service on Swarm
   shell: docker network ls --quiet --filter "name={{ ca_network_name }}"
   register: ca_network_output
 
-- name: Create Traefik network if not exists
+- name: Create CA network if not exists
   shell: >
     docker network create --driver overlay --attachable --subnet 10.3.0.0/24 {{ ca_network_name }}
   when: (ca_network_output.stdout | trim == '')
