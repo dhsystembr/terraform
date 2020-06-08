@@ -31,7 +31,7 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    # grafama panel
+    # grafana panel
     ingress {
         from_port   = 3000
         to_port     = 3000
@@ -39,10 +39,18 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    # grafama panel
+    # prometheus panel
     ingress {
         from_port   = 9090
         to_port     = 9090
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
+    # prometheus panel
+    ingress {
+        from_port   = 9093
+        to_port     = 9093
         protocol    = "tcp"
         cidr_blocks = [ "0.0.0.0/0" ]
     }
