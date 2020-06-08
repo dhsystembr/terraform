@@ -23,7 +23,7 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    # traefik panel
+    # cadvisor panel
     ingress {
         from_port   = 8080
         to_port     = 8080

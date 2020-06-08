@@ -3,9 +3,6 @@ version: '3'
 networks:
   myapp:
     driver: overlay
-  traefik-net:
-    external: true
-
   cadvisor:
     image: google/cadvisor
     ports:
