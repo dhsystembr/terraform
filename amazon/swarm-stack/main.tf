@@ -31,6 +31,30 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
+    # grafama panel
+    ingress {
+        from_port   = 3000
+        to_port     = 3000
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
+    # grafama panel
+    ingress {
+        from_port   = 9090
+        to_port     = 9090
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
+    # rocket panel
+    ingress {
+        from_port   = 3080
+        to_port     = 3080
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
     # swarm
     ingress {
         from_port   = 2377
