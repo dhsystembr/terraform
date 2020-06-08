@@ -7,7 +7,7 @@ receivers:
     - name: 'rocketchat'
       webhook_configs:
           - send_resolved: false
-            url: 'http://localhost:3080/hooks/vTh6i2DZBhAd9xi3F/6sryY9doW7kpWTXbGEciuWazzcPJcZ54QYsEkre2u7QjqcJK'
+            url: 'http://34.228.141.15:3080/hooks/vTh6i2DZBhAd9xi3F/6sryY9doW7kpWTXbGEciuWazzcPJcZ54QYsEkre2u7QjqcJK'
 
 
 ### IF YOU WANT USE SLACK, UNCOMMENT THE LINES BELLOW AND COMMENT THE LINES ABOVE

@@ -16,7 +16,7 @@ scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
-         - targets: ['localhost:9090']
+         - targets: ['34.228.141.15:9090']
   - job_name: 'node-exporter'
     dns_sd_configs:
     - names:
@@ -36,4 +36,4 @@ scrape_configs:
     honor_labels: true
     scrape_interval: 5s
     static_configs:
-         - targets: ['localhost:19999']
+         - targets: ['34.228.141.15:19999']

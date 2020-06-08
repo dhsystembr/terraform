@@ -47,7 +47,7 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    # prometheus panel
+    # alertmanager panel
     ingress {
         from_port   = 9093
         to_port     = 9093
