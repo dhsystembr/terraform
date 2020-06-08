@@ -1,9 +1,0 @@
-#---
-#- include: setup_network.yml
-#  tags:
-#    - setup_traefik_network
-
-- include: setup_service.yml
-  tags:
-    - setup_ca_service
-
