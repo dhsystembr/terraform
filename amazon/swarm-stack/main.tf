@@ -47,18 +47,11 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
-    # mongodb panel
-    ingress {
-        from_port   = 27017
-        to_port     = 27017
-        protocol    = "tcp"
-        cidr_blocks = [ "0.0.0.0/0" ]
-    }
 
-    # alertmanager panel
+    # sei la panel
     ingress {
-        from_port   = 9093
-        to_port     = 9093
+        from_port   = 19999
+        to_port     = 19999
         protocol    = "tcp"
         cidr_blocks = [ "0.0.0.0/0" ]
     }
@@ -72,12 +65,12 @@ resource "aws_security_group" "swarm" {
     }
 
     # rocket panel
-    ingress {
-        from_port   = 3080
-        to_port     = 3080
-        protocol    = "tcp"
-        cidr_blocks = [ "0.0.0.0/0" ]
-    }
+    #ingress {
+    #    from_port   = 3080
+    #    to_port     = 3080
+    #    protocol    = "tcp"
+    #    cidr_blocks = [ "0.0.0.0/0" ]
+    #}
 
     # swarm
     ingress {

@@ -3,20 +3,20 @@ global:
   evaluation_interval: 10s
   external_labels:
       monitor: 'giropops-monitoring'
-rule_files:
-  - 'alert.rules'
-alerting:
-  alertmanagers:
-  - scheme: http
-    static_configs:
-    - targets:
-      - "alertmanager:9093"
+#rule_files:
+#  - 'alert.rules'
+#alerting:
+#  alertmanagers:
+#  - scheme: http
+#    static_configs:
+#    - targets:
+#      - "alertmanager:9093"
 
 scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
-         - targets: ['34.228.141.15:9090']
+         - targets: ['localhost:9090']
   - job_name: 'node-exporter'
     dns_sd_configs:
     - names:
@@ -36,4 +36,4 @@ scrape_configs:
     honor_labels: true
     scrape_interval: 5s
     static_configs:
-         - targets: ['34.228.141.15:19999']
+         - targets: ['localhost:19999']
