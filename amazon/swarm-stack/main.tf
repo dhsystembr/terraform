@@ -47,10 +47,26 @@ resource "aws_security_group" "swarm" {
         cidr_blocks = [ "0.0.0.0/0" ]
     }
 
+    # mongodb panel
+    ingress {
+        from_port   = 27017
+        to_port     = 27017
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
     # alertmanager panel
     ingress {
         from_port   = 9093
         to_port     = 9093
+        protocol    = "tcp"
+        cidr_blocks = [ "0.0.0.0/0" ]
+    }
+
+    # node-exporter panel
+    ingress {
+        from_port   = 9100
+        to_port     = 9100
         protocol    = "tcp"
         cidr_blocks = [ "0.0.0.0/0" ]
     }
