@@ -50,8 +50,8 @@ resource "aws_security_group" "swarm" {
 
     # sei la panel
     ingress {
-        from_port   = 19999
-        to_port     = 19999
+        from_port   = 8500
+        to_port     = 8500
         protocol    = "tcp"
         cidr_blocks = [ "0.0.0.0/0" ]
     }

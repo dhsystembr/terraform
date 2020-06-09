@@ -5,11 +5,11 @@ rule_files:
   - 'alert.rules'
 
  consul_sd_configs:
-  - server: '34.228.141.15:8500'
+  - server: 'localhost:8500'
     scheme: https
 
 scrape_configs:
   - job_name: 'prometheus'
     scrape_interval: 5s
     static_configs:
-         - targets: ['34.228.141.15:9090']
+         - targets: ['localhost:9090']
