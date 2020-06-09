@@ -4,15 +4,10 @@
   tasks:
     - name: Copy stack definition
       copy: src=myapp.yml dest=/tmp/myapp.yml
-    
-#    - name: Copy stack definition CA
-#      copy: src=myca.yml dest=/tmp/myca.yml
 
     - name: Deploy stack App
       shell: docker stack deploy --compose-file /tmp/myapp.yml myapp
 
 
-#    - name: Deploy stack CA
-#      shell: docker stack deploy --compose-file /tmp/myca.yml myca
       
 
